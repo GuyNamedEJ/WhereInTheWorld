@@ -9,4 +9,6 @@ app.use(express.json())
 app.use('/', require('./routes/country'))
 const PORT = 8000
 
-app.listen(PORT, console.log(`WE live on port ${PORT}`))
+app.listen(process.env.PORT || PORT, ()=>{
+    console.log(`The Server is live on ${PORT}`)
+})

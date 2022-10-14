@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
 
+.navbar-brand
+{
+    font-weight: 800;
+}
 .navbar
 {
     margin-bottom: 40px;
@@ -29,5 +33,23 @@
 
 .filter-container{
     display:flex;
+    
     justify-content: space-between;
 }
+
+@media only screen and (max-width: 800px) {
+
+    .search{
+        width:300px;
+        margin-bottom: 25px;
+    }
+
+    .filter-container{
+        flex-direction: column;
+    }
+
+}
+    
+
+
+

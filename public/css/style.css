@@ -22,3 +22,12 @@
     font-size: 18px;
     font-weight: 800;
 }
+
+.search{
+    width:480px;
+}
+
+.filter-container{
+    display:flex;
+    justify-content: space-between;
+}

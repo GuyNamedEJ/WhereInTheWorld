@@ -1,3 +1,5 @@
+const fetch = require('node-fetch')
+
 // Display All Countries
 const countriesView = (req,res) => {
     res.render("index", {})
@@ -8,7 +10,9 @@ const countryInfoView = (req,res) => {
     res.render("country", {})
 }
 
+
+
 module.exports = {
     countriesView,
-    countryInfoView
+    countryInfoView,
 }

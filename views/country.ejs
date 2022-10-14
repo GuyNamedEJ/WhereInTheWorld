@@ -14,62 +14,92 @@
 <body>
     <nav class="navbar bg-light">
         <div class="container-fluid">
-          <span class="navbar-brand mb-0 h1">Where in the world?</span>
+            <span class="navbar-brand mb-0 h1">Where in the world?</span>
         </div>
-      </nav>
+    </nav>
     <main class="container px-5">
         <a class="btn btn-back" href="/" role="button">Back</a>
         <div class="country-details">
             <img class="flag" src="<%= data[0].flags.svg %>" alt="<%= data[0].name.common %> Flag" width="100%">
-            <div class="detail-1">
+            <div class="details">
                 <h1 class="name">
                     <%= data[0].name.common %>
                 </h1>
-                <p><span class="label">Native Names: </span> 
-                    <% for(let i = 0; i < nativeName.length; i++) {%>
-                        <% if(i == nativeName.length-1) {%>
-                            <span><%=nativeName[i].official%></span>
-            
-                            <% }else{ %>
-                            <span><%=nativeName[i].official%>,</span>
-                        <% } %>
-                        
-                        <% } %>
-                </p>
-                <p><span class="label">Population: </span> <%= data[0].population.toLocaleString("en-US") %></p>
-                <p><span class="label">Region: </span> <%= data[0].region %></p>
-                <p><span class="label">Sub Region: </span> <%= data[0].subregion %></p>
-                <p><span class="label">Capital: </span> <%= data[0].capital %></p>  
-            </div>
-            <div class="detail-2">
-                <p><span class="label">Top Level Domain: </span> <%= data[0].tld %></p>
-                <p><span class="label">Currency: </span> <%= currency[0].name %> </p>
-                <p><span class="label">Languages: </span> 
-                    
-                    
-                    <% for(let i = 0; i < languages.length; i++) {%>
-                    <% if(i == languages.length-1) {%>
-                        <span><%=languages[i]%></span>
+                
+                <div class="details-container">
+                    <div class="details-left">
+                        <p><span class="label">Native Names: </span>
+                            <% for(let i=0; i < nativeName.length; i++) {%>
+                                <% if(i==nativeName.length-1) {%>
+                                    <span>
+                                        <%=nativeName[i].official%>
+                                    </span>
         
-                        <% }else{ %>
-                        <span><%=languages[i]%>,</span>
-                    <% } %>
-                    
-                    <% } %>
-                </p>
-            </div>
-            <div class="border-countries">
-                <p class="label">Border Countries:</p>
-                <% if(borderData != null) {%>
-                    <% for(let i = 0; i < borderData.length; i++) {%>
-                        <a class="btn btn-border" href="/countryData?country=<%= borderData[i] %>" role="button"><%=borderData[i]%></a>
-                        <% } %>
-    
-                    <% }else{ %>
-                        <p>None</p>
-                <% } %>
+                                    <% }else{ %>
+                                        <span>
+                                            <%=nativeName[i].official%>,
+                                        </span>
+                                        <% } %>
+        
+                                            <% } %>
+                        </p>
+                        <p><span class="label">Population: </span>
+                            <%= data[0].population.toLocaleString("en-US") %>
+                        </p>
+                        <p><span class="label">Region: </span>
+                            <%= data[0].region %>
+                        </p>
+                        <p><span class="label">Sub Region: </span>
+                            <%= data[0].subregion %>
+                        </p>
+                        <p><span class="label">Capital: </span>
+                            <%= data[0].capital %>
+                        </p>
+                    </div>
+
+                    <div class="details-right">
+                        <p><span class="label">Top Level Domain: </span>
+                            <%= data[0].tld %>
+                        </p>
+                        <p><span class="label">Currency: </span>
+                            <%= currency[0].name %>
+                        </p>
+                        <p><span class="label">Languages: </span>
+        
+        
+                            <% for(let i=0; i < languages.length; i++) {%>
+                                <% if(i==languages.length-1) {%>
+                                    <span>
+                                        <%=languages[i]%>
+                                    </span>
+        
+                                    <% }else{ %>
+                                        <span>
+                                            <%=languages[i]%>,
+                                        </span>
+                                        <% } %>
+        
+                                            <% } %>
+                        </p>
+        
+                    </div>
+                </div>
+                <div class="border-countries">
+                    <p class="label">Border Countries:</p>
+                    <% if(borderData !=null) {%>
+                        <% for(let i=0; i < borderData.length; i++) {%>
+                            <a class="btn btn-border" href="/countryData?country=<%= borderData[i] %>" role="button">
+                                <%=borderData[i]%>
+                            </a>
+                            <% } %>
+        
+                                <% }else{ %>
+                                    <p>None</p>
+                                    <% } %>
+                </div>
             </div>
         </div>
+        
     </main>
     <!-- <h1>Country Name: <%= data[0].name.common %></h1>
     <h2>Region: <%= data[0].region %></h2> -->

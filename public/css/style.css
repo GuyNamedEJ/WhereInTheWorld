@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
 
+.btn{
+    margin:5px;
+}
 .navbar-brand
 {
     font-weight: 800;
@@ -8,6 +11,11 @@
 {
     margin-bottom: 40px;
 }
+
+.card-holder{
+    display: none;
+}
+
 .card{
     width:264px;
     height:336px;
@@ -49,6 +57,12 @@
     }
 
 }
+
+.show{
+    display: flex;
+}
+
+
     
 
 

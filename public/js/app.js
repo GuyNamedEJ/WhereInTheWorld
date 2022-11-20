@@ -1,17 +1,15 @@
 filterSelection("all")
-function filterSelection(c) {
-  var x, i;
-  x = document.getElementsByClassName("card-holder");
-  console.log(x)
-  if (c == "all") c = "";
-  for (i = 0; i < x.length; i++) {
-    w3RemoveClass(x[i], "show");
-    if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+function filterSelection(filter) {
+  let card = document.getElementsByClassName("card-holder");
+  if (filter == "all") filter = "";
+  for (let i = 0; i < card.length; i++) {
+    removeFilter(card[i], "show");
+    if (card[i].className.indexOf(filter) > -1) addFilter(card[i], "show");
   }
 }
 
-function w3AddClass(element, name) {
-  var i, arr1, arr2;
+function addFilter(element, name) {
+  let i, arr1, arr2;
   arr1 = element.className.split(" ");
   arr2 = name.split(" ");
   for (i = 0; i < arr2.length; i++) {
@@ -19,8 +17,8 @@ function w3AddClass(element, name) {
   }
 }
 
-function w3RemoveClass(element, name) {
-  var i, arr1, arr2;
+function removeFilter(element, name) {
+  let i, arr1, arr2;
   arr1 = element.className.split(" ");
   arr2 = name.split(" ");
   for (i = 0; i < arr2.length; i++) {
@@ -32,12 +30,30 @@ function w3RemoveClass(element, name) {
 }
 
 // Add active class to the current button (highlight it)
-var btns = document.getElementsByClassName("btn");
-for (var i = 0; i < btns.length; i++) {
+let btns = document.getElementsByClassName("btn")
+for (let i = 0; i < btns.length; i++) {
   btns[i].addEventListener("click", function(){
-    var current = document.getElementsByClassName("active");
-    current[0].className = current[0].className.replace(" active", "");
-    this.className += " active";
+    let current = document.getElementsByClassName("active")
+    current[0].className = current[0].className.replace(" active", "")
+    this.className += " active"
   });
 }
 
+function searchCountry() {
+    // Declare variables
+    let input, filter, countryName, txtValue
+    input = document.getElementById('countryInput')
+    filter = input.value.toUpperCase()
+    let countries = document.getElementsByClassName('card')
+  
+    // Loop through all list items, and hide those who don't match the search query
+    for (let i = 0; i < countries.length; i++) {
+      countryName = countries[i].getElementsByClassName("card-title")[0];
+      txtValue = countryName.textContent || countryName.innerText
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        countries[i].parentNode.style.display = "flex"
+      } else {
+        countries[i].parentNode.style.display = "none"
+      }
+    }
+  }

@@ -20,17 +20,17 @@
   </nav>
   <main class="container ">
     <div class="filter-container">
-      <!-- <form action="/search" method="get">
+      <form>
         <div class="input-group flex-nowrap search">
           <span class="input-group-text" id="addon-wrapping"><i class="bi bi-search"></i></span>
-          <input type="text" class="form-control" placeholder="Search for a country..." aria-label="Search"
-            aria-describedby="addon-wrapping" name="name">
+          <input id="countryInput" type="text" class="form-control" placeholder="Search for a country..." aria-label="Search"
+            aria-describedby="addon-wrapping" onkeyup="searchCountry()" name="name">
         </div>
-      </form>       -->
+      </form>      
       <div id="myBtnContainer">
         <button class="btn btn-secondary active" onclick="filterSelection('all')"> Show all</button>
         <button class="btn btn-secondary" onclick="filterSelection('Africa')"> Africa</button>
-        <button class="btn btn-secondary" onclick="filterSelection('America')"> America</button>
+        <button class="btn btn-secondary" onclick="filterSelection('America')"> Americas</button>
         <button class="btn btn-secondary" onclick="filterSelection('Asia')"> Asia</button>
         <button class="btn btn-secondary" onclick="filterSelection('Europe')"> Europe</button>
         <button class="btn btn-secondary" onclick="filterSelection('Oceania')"> Oceania</button>

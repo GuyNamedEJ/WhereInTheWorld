@@ -3,13 +3,13 @@ function filterSelection(filter) {
   let card = document.getElementsByClassName("card-holder");
   if (filter == "all") filter = "";
   for (let i = 0; i < card.length; i++) {
-    removeFilter(card[i], "show");
-    if (card[i].className.indexOf(filter) > -1) addFilter(card[i], "show");
+    hideCard(card[i], "show");
+    if (card[i].className.indexOf(filter) > -1) showCard(card[i], "show");
   }
 }
 
-function addFilter(element, name) {
-  let i, arr1, arr2;
+function showCard(element, name) {
+  var i, arr1, arr2;
   arr1 = element.className.split(" ");
   arr2 = name.split(" ");
   for (i = 0; i < arr2.length; i++) {
@@ -17,8 +17,8 @@ function addFilter(element, name) {
   }
 }
 
-function removeFilter(element, name) {
-  let i, arr1, arr2;
+function hideCard(element, name) {
+  var i, arr1, arr2;
   arr1 = element.className.split(" ");
   arr2 = name.split(" ");
   for (i = 0; i < arr2.length; i++) {
@@ -51,7 +51,7 @@ function searchCountry() {
       countryName = countries[i].getElementsByClassName("card-title")[0];
       txtValue = countryName.textContent || countryName.innerText
       if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        countries[i].parentNode.style.display = "flex"
+        countries[i].parentNode.style.display = ""
       } else {
         countries[i].parentNode.style.display = "none"
       }

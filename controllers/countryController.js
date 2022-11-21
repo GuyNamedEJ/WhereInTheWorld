@@ -6,6 +6,7 @@ const countriesView = async (req,res) => {
     const fetch_response = await fetch(api_url)
     const json = await fetch_response.json()
 
+    // Sort Countries alphabetically
     json.sort( function( a, b ) {
         a = a.name.common.toLowerCase();
         b = b.name.common.toLowerCase();
@@ -13,26 +14,6 @@ const countriesView = async (req,res) => {
         return a < b ? -1 : a > b ? 1 : 0;
     });
 
-    res.render('index.ejs',{info:json})
-}
-
-const regionView = async (req,res) => {
-    const region = req.query.region
-    const api_url = 'https://restcountries.com/v3.1/region/'+ region
-    const fetch_response = await fetch(api_url)
-    const json = await fetch_response.json()
-
-    // var result = json.filter(obj => obj.region == region);
-    // console.log(result);
-    res.render('index.ejs',{info:json})
-}
-
-const searchView = async(req,res) => {
-    const name = req.query.name
-    console.log(name)
-    const api_url = 'https://restcountries.com/v3.1/name/'+ name
-    const fetch_response = await fetch(api_url)
-    const json = await fetch_response.json()
     res.render('index.ejs',{info:json})
 }
 
@@ -81,7 +62,5 @@ async function getBorderCountries(borderCountries)
 
 module.exports = {
     countriesView,
-    countryInfoView,
-    searchView,
-    regionView
+    countryInfoView
 }

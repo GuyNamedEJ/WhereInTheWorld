@@ -15,7 +15,7 @@
 <body>
   <nav class="navbar bg-light">
     <div class="container-fluid">
-      <span class="navbar-brand mb-0 h1">Where in the world?</span>
+      <span class="navbar-brand mb-0 h1"> <i class="bi bi-globe"></i> Where in the world?</span>
     </div>
   </nav>
   <main class="container ">
@@ -27,13 +27,14 @@
             aria-describedby="addon-wrapping" onkeyup="searchCountry()" name="name">
         </div>
       </form>      
-      <div id="myBtnContainer">
-        <button class="btn btn-secondary active" onclick="filterSelection('all')"> Show all</button>
-        <button class="btn btn-secondary" onclick="filterSelection('Africa')"> Africa</button>
-        <button class="btn btn-secondary" onclick="filterSelection('America')"> Americas</button>
-        <button class="btn btn-secondary" onclick="filterSelection('Asia')"> Asia</button>
-        <button class="btn btn-secondary" onclick="filterSelection('Europe')"> Europe</button>
-        <button class="btn btn-secondary" onclick="filterSelection('Oceania')"> Oceania</button>
+
+      <div class="filterBtns" id="myBtnContainer">
+        <button class="btn btn-secondary active col-3" onclick="filterSelection('all')"> Show all</button>
+        <button class="btn btn-secondary col-3" onclick="filterSelection('Africa')"> Africa</button>
+        <button class="btn btn-secondary col-3" onclick="filterSelection('America')"> Americas</button>
+        <button class="btn btn-secondary col-3" onclick="filterSelection('Asia')"> Asia</button>
+        <button class="btn btn-secondary col-3" onclick="filterSelection('Europe')"> Europe</button>
+        <button class="btn btn-secondary col-3" onclick="filterSelection('Oceania')"> Oceania</button>
       </div>
     </div>
     <div class="row gx-5">
